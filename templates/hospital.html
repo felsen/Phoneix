@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}My Care - Hospital Page{% endblock %}
+
+
+{% block midpart %}
+
+<!----------------------------->
+  <div class="modal fade" id="myModalLoginInfo" role="dialog">
+    <div class="modal-dialog">
+    
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="submenu close" data-dismiss="modal" id="booking_menu">&times;</button>
+          <h4 class="modal-title">Please Signin/Singup before booking</h4>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+  <!----------------Home1------------------------->
+    <div id="tf-single-hospital" class="text-center">
+        <div class="overlay">
+            <div class="clearfix"></div>
+
+			<div class="content">
+				<div class="row">
+					<div class="col-sm-5 col-sm-offset-1">
+
+					</div>
+				</div>
+				<div class="content-single-job_listing-hero-company col-md-7 col-sm-12">
+							<h1 itemprop="name" class="job_listing-title">Cureato Imperial</h1>
+							<h5>22/10, MG Road, Bangalore - 560076</h5>
+				</div>
+				<div class="content-single-job_listing-title-category">
+		
+			
+				</div>
+					
+				<div class="row">
+							<div class="col-sm-7 col-sm-offset-1">							
+
+							</div>
+				</div>
+
+				<div class="col-sm-2 col-sm-offset-9">
+										<span class="input-group-btn">
+											<a href="hospitals.html"><button tabindex="1" class="btn btn-home-top" type="button">Submit a Review</button></a>
+										</span>
+							
+				</div>
+			</div>
+			<div class="row angle-down">
+							<br>
+			</div>				
+
+		</div>
+	</div>
+	
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+    <!-- About Us Page
+    ==========================================-->
+    <div id="tf-about">
+        <div class="container">
+			<div class="row angle-down-in-out">
+							<br>
+			</div>							
+			
+            <div class="row">
+            <div class="col-md-9">
+			<div class="row">
+					
+					<h4><span class="fa fa-list-alt"></span>  Details</h4>
+			</div>
+			<div class="row angle-down-in">
+							<br>
+			</div>				
+			<div class="row" style="margin-top:1%;">
+					<div class="col-sm-2"><a href="#" class="btn btn-default" id="details_menu" style="color:#FFFFFF; background-color:#6A4A9F;">Overview</a></div>
+					<div class="col-sm-2"><a href="#" class="btn" id="booking_menu" style="color:#000;">Specialities</a></div>
+					<div class="col-sm-2"><a href="#" class="btn submenu" id="booking_menu" style="color:#000;">Book Appointment</a></div>
+					<div class="col-sm-2"><a href="#" class="btn" id="details_menu" style="color:#000;">Second Question</a></div>
+					<div class="col-sm-2"><a href="#" class="btn" id="booking_menu" style="color:#000;">Doctors</a></div>
+					<div class="col-sm-2"><a href="#" class="btn" id="question_menu" style="color:#000;">More</a></div>					
+			</div>
+			<div class="details_menu_1 details_content" style="display:block;">
+					<!--div class="row">
+						<img src="/static/img/hospitals/health-room5.png" class="img-responsive">
+					</div-->
+					<div class="row">
+						<ul class="about-list">
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <em>We have been in the healthcare industry since 1995 and have provide extraordinary service to everyone who entrusts us with their health.</em>
+                            </li>
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <em>We have 300 bed and a staff 200 strong deal with all the major specialities</em>
+                            </li>
+
+                        </ul>
+					</div>
+					<div class="row angle-down-in-in">
+							<br>
+					</div>									
+					<div class="row">
+					
+						<h4><span class="fa fa-list-alt"></span> Photo</h4>
+					</div>
+					<div class="row">
+						<img src="/static/img/hospitals/health-room5.png" class="circle-img">
+						<img src="/static/img/hospitals/health-room5.png" class="circle-img">
+						<img src="/static/img/hospitals/health-room5.png" class="circle-img">
+					</div>
+					<div class="row angle-down-in-in">
+							<br>
+					</div>									
+					<div class="row">
+					
+						<h4><span class="fa fa-list-alt"></span> Video</h4>
+					</div>
+					<div class="row">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/pOllmIZjNuY" frameborder="0" allowfullscreen></iframe>
+					</div>					
+			</div>
+			<div class="booking_menu_1 details_content" style="display:none;">
+							<div class="row">
+								<div class="col-sm-4"><label>Speciality/Department</label></div><div class="col-sm-8"><input type="text" class="form-control"><br></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4"><label>Booking Date</label></div>
+								<div class="col-sm-8">
+								 <div class="row">
+									<div class='col-sm-6'>
+										<div class="form-group">
+											<div class='input-group date' id='datetimepicker1'>
+												<input type='text' class="form-control" />
+												<span class="input-group-addon">
+													<span class="fa fa-calendar"></span>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class='col-sm-6'>
+										<div class="form-group">
+											<div class='input-group date' id='timepicker'>
+												<input type='text' class="form-control" />
+												<span class="input-group-addon">
+													<span class="fa fa-time"></span>
+												</span>
+											</div>
+										</div>
+									</div>									
+								</div>
+							</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4"><label>Name</label></div><div class="col-sm-8"><input type="text" class="form-control"><br></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4"><label>Email</label></div><div class="col-sm-8"><input type="password" class="form-control"><br></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4"><label>Phone</label></div><div class="col-sm-8"><input type="password" class="form-control"><br></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4"><label>Note/Comment</label></div><div class="col-sm-8"><textarea class="form-control"></textarea><br></div>
+							</div>		
+							<div class="row">
+								<div class="col-sm-4"><button class="btn">Submit</button></div>
+							</div>
+			</div>
+			<div class="question_menu_1 details_content" style="display:none;">
+					<div class="row">
+							<div class="row">
+								<div class="col-sm-4"><label>Name</label></div><div class="col-sm-8"><input type="text" class="form-control"><br></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4"><label>Email</label></div><div class="col-sm-8"><input type="password" class="form-control"><br></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4"><label>Phone</label></div><div class="col-sm-8"><input type="password" class="form-control"><br></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4"><label>Question</label></div><div class="col-sm-8"><textarea class="form-control"></textarea><br></div>
+							</div>		
+							<div class="row">
+								<div class="col-sm-4"><button class="btn">Submit</button></div>
+							</div>
+					</div>
+					
+			</div>
+
+				</div>
+
+                <div class="col-md-3">
+                    <div class="about-text">
+
+						<div class="row content_in">
+								<div class="" id="map">
+								</div>
+						</div>
+					</div>
+					
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

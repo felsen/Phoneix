@@ -3,7 +3,13 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 
+# Form userprofile models imports:
+from userprofile.models import UserGetList
+
+
 class UserLoginForm(forms.Form):
+
+    """ Custom Login form for user. """
 
     username = forms.CharField(label = ("Username"), max_length = 20, \
                 widget = forms.TextInput(attrs = {'class':'form-control'}))
@@ -11,6 +17,8 @@ class UserLoginForm(forms.Form):
                 widget = forms.PasswordInput(attrs = {'class':'form-control'}))
 
 class UserRegisterForm(forms.ModelForm):
+
+    """ Custom Registration form for user. """
 
     confirm_password = forms.CharField(label = ("Confirm Password"), \
                 widget = forms.PasswordInput(attrs = {'class':'form-control'}), required = True)
@@ -24,6 +32,9 @@ class UserRegisterForm(forms.ModelForm):
                    "password":forms.PasswordInput(attrs = {'class':'form-control'}),}
 
     def clean_confirm_password(self):
+    
+        """ Password validation matching on register the user details. """
+    
         pwd1 = self.cleaned_data['password']
         pwd2 = self.cleaned_data['confirm_password']
         if pwd1 != pwd2:
@@ -31,10 +42,30 @@ class UserRegisterForm(forms.ModelForm):
         return self.cleaned_data
 
     def clean_email(self):
+    
+        """ Validating the user email on register. """
+    
         email = self.cleaned_data['email']
         if User.objects.filter(email = email).exists():
             raise forms.ValidationError("Email already exists.")
         return email
+
+#class UserGetListForm(ModelForm):
+
+#    """ Get user list model form. """
+
+#    class Meta:
+#        model = UserGetList
+#        fields = ('username', 'email', 'phone_no', 'organization_name', 'address', 'website')
+
+
+
+
+
+
+
+
+
 
 
 

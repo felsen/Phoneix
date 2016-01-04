@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block midpart %}
+
+
+<style>
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+.user_profile_tab{
+border: 1px Solid #6B4BA0;
+    border-radius: 50px;
+    background-color: #4DC6F9;
+    padding: 5px 5px 5px 5px;
+    font-weight: inherit;
+    color: #ffffff;
+	margin-left:5px;
+}
+.user_profile_tab.active{
+border: 1px Solid #6B4BA0;
+    border-radius: 50px;
+    background-color: #6B4BA0;
+    padding: 5px 5px 5px 5px;
+    font-weight: inherit;
+    color: #ffffff;
+	margin-left:5px;
+}
+
+</style>
+
+
+  <!----------------Home1------------------------->
+  
+<!------------------------------------------------------>
+    <!-- Facilities
+    ==========================================-->
+    <div id="">
+        <div class="">
+		<div class="container" style="padding-top:13%;">
+		<div class="row text-center">
+			<div class="col-sm-12" style="border-bottom:1px solid #808080;padding-bottom:5px;">
+				<div class="col-sm-1 user_profile_tab active">Profile</div>
+				<div class="col-sm-1 user_profile_tab">MailBox</div>
+				<div class="col-sm-2 user_profile_tab">Upcoming Event</div>
+			</div>
+		</div>
+		<div class="row">
+        <div class="col-sm-9" >
+   
+			 
+          <div class="panel panel-info" style="margin-top:3.5%;">
+		    <div class="panel-heading">
+              <h4 class="panel-title">Rahul Kumar</h4>
+			  <h4 class="panel-title" style="margin-top: -2.5%;margin-left: 75%;font-size: 12px;">May 05,2014,03:00 pm </h4>
+            </div>
+			
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-2" align="center"> <img alt="User Pic" src="/static/img/profile_img.jpg" class="img-circle img-responsive"></div>
+                
+                <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>DEPARTMENT:</dt>
+                    <dd>Administrator</dd>
+                    <dt>HIRE DATE</dt>
+                    <dd>11/12/2013</dd>
+                    <dt>DATE OF BIRTH</dt>
+                       <dd>11/12/2013</dd>
+                    <dt>GENDER</dt>
+                    <dd>Male</dd>
+                  </dl>
+                </div>-->
+                <div class=" col-md-9 col-lg-9">
+					<div class="row" style="padding-bottom:10px;">
+                        <div class="col-sm-6">Name</div>
+                        <div class="col-sm-6">Rahul Kumar<br></div>
+					</div>				
+					<div class="row" style="padding-bottom:10px;">
+                        <div class="col-sm-6">Date of Birth</div>
+                        <div class="col-sm-6">01/24/1988<br></div>
+					</div>
+					<div class="row" style="padding-bottom:10px;">
+                        <div class="col-sm-6">Gender</div>
+                        <div class="col-sm-6">Male<br></div>
+					</div>
+					<div class="row" style="padding-bottom:10px;">
+                        <div class="col-sm-6">Address</div>
+                        <div class="col-sm-6">Metro Manila,Philippines<br></div>
+					</div>
+					<div class="row" style="padding-bottom:10px;">	
+                        <div class="col-sm-6">Email</div>
+                        <div class="col-sm-6">info@support.com<br></div>
+					</div>
+					<div class="row" style="padding-bottom:10px;">	
+                        <div class="col-sm-6">Phone Number</div>
+                        <div class="col-sm-6">123-4567-890(Landline)<br></div>
+					</div>
+					
+                    <div class="col-sm-1 col-sm-offset-6"><a href="edit_profile.html"><button class="btn btn-warning" style="background-color:#4DC6F9;color:#ffffff;border:1px solid #6B4BA0;">Edit Profile</button></a>	</div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+</div>
+</div>
+<!------------------------------------------------------>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

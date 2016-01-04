@@ -21,25 +21,45 @@ from django.conf.urls.static import static
 
 # local file imports.
 import settings
-from userprofile.views import HomePage, HospitalsListView, ClinicsPageView, DgLabsPageView, \
-    PharmacyPageview, ContactPageView, HospitalPageView, UserLoginView, UserRegistrationView
+from userprofile.views import HomePage, HospitalsListView, ClinicsListView, DgLabsPageView, \
+    PharmacyListView, ContactPageView, HospitalPageView, UserLoginView, UserRegistrationView, \
+    AboutUsPageView, TermsServicePageView, BlogPageView, ClinicsPageView, DgLabsListView, \
+    PharmacyPageView, UserProfileView, UserGetListView
 
 urlpatterns = [
+
+    # Django backend admin app url(If you don't want comment it.).
     url(r'^admin/', include(admin.site.urls)),
 
     # Logout url accessing django in-built logout functions.
+
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page':'/'}),
 
     # User Profile App Urls:
-    url(r'^$', HomePage.as_view(), name = 'home-page'),
-    url(r'^hospitals-list/$', HospitalsListView.as_view(), name = 'hospitals-list'),
-    url(r'^clinics-list/$', ClinicsPageView.as_view(), name = 'clinics-page'),
-    url(r'^dglabs-list/$', DgLabsPageView.as_view(), name = 'dglabspage'),
-    url(r'^pharmacy-list/$', PharmacyPageview.as_view(), name = 'pharmacy-page'),
-    url(r'^contact-page/$', ContactPageView.as_view(), name = 'contact-page'),
-    url(r'^hospital-page/$', HospitalPageView.as_view(), name = 'hospital-page'),
+
     url(r'^user-registration/$', UserRegistrationView.as_view(), name = 'user-registration'),
     url(r'^user-login/$', UserLoginView.as_view(), name = 'user-login'),
+    url(r'^user-profile/$', UserProfileView.as_view(), name = 'user-profile'),
+
+    url(r'^$', HomePage.as_view(), name = 'home-page'),
+
+    url(r'^hospitals-list/$', HospitalsListView.as_view(), name = 'hospitals-list'),
+    url(r'^hospital-page/$', HospitalPageView.as_view(), name = 'hospital-page'),
+
+    url(r'^clinics-list/$', ClinicsListView.as_view(), name = 'clinics-list'),
+    url(r'^clinics-page/$', ClinicsPageView.as_view(), name = 'clinics-page'),
+
+    url(r'^dglabs-list/$', DgLabsListView.as_view(), name = 'dglabs-list'),
+    url(r'^dglabs-page/$', DgLabsPageView.as_view(), name = 'dglabs-page'),
+
+    url(r'^pharmacy-list/$', PharmacyListView.as_view(), name = 'pharmacy-list'),
+    url(r'^pharmacy-page/$', PharmacyPageView.as_view(), name = 'pharmacy-page'),
+
+    url(r'^get-user-list/$', UserGetListView.as_view(), name = 'get-user-list'),
+    url(r'^about-us/$', AboutUsPageView.as_view(), name = 'about-us-page'),
+    url(r'^terms-of-services/$', TermsServicePageView.as_view(), name = 'terms-of-page'),
+    url(r'^blog/$', BlogPageView.as_view(), name = 'blog-page'),
+    url(r'^contact-page/$', ContactPageView.as_view(), name = 'contact-page'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

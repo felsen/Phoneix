@@ -3,7 +3,7 @@ from django.shortcuts import render, render_to_response
 from django.views.generic.base import TemplateView
 from django.contrib.auth import login as auth_login, authenticate, get_user
 from django.http import HttpResponseRedirect
-from django.views.generic import FormView, View
+from django.views.generic import FormView, View, CreateView
 from django.contrib.auth.models import User
 
 # From Third Party Package Imports:
@@ -11,8 +11,12 @@ import json
 
 # From Current Project Module Imports:
 from userprofile.forms import UserLoginForm, UserRegisterForm
+from userprofile.models import UserGetList
+
 
 class UserLoginView(FormView):
+
+    """ CBV for user login """
 
     template_name = "user_login.html"
     success_url = "/"
@@ -31,6 +35,8 @@ class UserLoginView(FormView):
 
 class UserRegistrationView(FormView):
 
+    """ CBV for user register """
+
     template_name = "user_register.html"
     form_class = UserRegisterForm
     success_url = "/"
@@ -40,6 +46,13 @@ class UserRegistrationView(FormView):
             email = self.request.POST.get('email'), password = self.request.POST.get('password'))
         return super(UserRegistrationView, self).form_valid(form)
 
+class UserGetListView(CreateView):
+
+    model = UserGetList
+    fields = ('username', 'email', 'phone_no', 'organization_name', 'address', 'website')
+    template_name = 'get_userlist.html'
+    success_url = "/"
+
 class HomePage(TemplateView):
 
     template_name = 'index.html'
@@ -48,17 +61,29 @@ class HospitalsListView(TemplateView):
 
     template_name = 'hospitals.html'
 
-class ClinicsPageView(TemplateView):
+class ClinicsListView(TemplateView):
 
     template_name = 'clinics.html'
 
-class DgLabsPageView(TemplateView):
+class ClinicsPageView(TemplateView):
+
+    template_name = 'clinic_page.html'
+
+class DgLabsListView(TemplateView):
 
     template_name = 'dglabs.html'
 
-class PharmacyPageview(TemplateView):
+class DgLabsPageView(TemplateView):
+
+    template_name = 'dglab_page.html'
+
+class PharmacyListView(TemplateView):
 
     template_name = 'pharmacy.html'
+
+class PharmacyPageView(TemplateView):
+
+    template_name = 'pharmacy_page.html'
 
 class ContactPageView(TemplateView):
 
@@ -67,3 +92,23 @@ class ContactPageView(TemplateView):
 class HospitalPageView(TemplateView):
 
     template_name = 'hospital.html'
+
+class AboutUsPageView(TemplateView):
+
+    template_name = 'about_us.html'
+
+class TermsServicePageView(TemplateView):
+
+    template_name = 'tof.html'
+
+class BlogPageView(TemplateView):
+
+    template_name = 'blog.html'
+
+class UserProfileView(TemplateView):
+
+    template_name = 'user_profile.html'
+
+
+
+

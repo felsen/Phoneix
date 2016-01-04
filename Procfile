@@ -1,1 +1,1 @@
-web: gunicorn Phoneix.wsgi --log-file -
+web: python manage.py collectstatic --noinput; python manage.py run_gunicorn -b 0.0.0.0:$PORT

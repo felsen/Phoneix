@@ -50,13 +50,28 @@ class UserRegisterForm(forms.ModelForm):
             raise forms.ValidationError("Email already exists.")
         return email
 
-#class UserGetListForm(ModelForm):
+class UserGetListForm(forms.ModelForm):
 
-#    """ Get user list model form. """
+    """ Get user list model form. """
 
-#    class Meta:
-#        model = UserGetList
-#        fields = ('username', 'email', 'phone_no', 'organization_name', 'address', 'website')
+    def __init__(self,*args, **kwargs):
+        super(UserGetListForm, self).__init__(*args, **kwargs)
+        self.fields['username'].required = True
+        self.fields['email'].required = True
+        self.fields['phone_no'].required = True
+        self.fields['organization_name'].required = True
+        self.fields['address'].required = True
+        self.fields['website'].required = True
+
+    class Meta:
+        model = UserGetList
+        fields = ('username', 'email', 'phone_no', 'organization_name', 'address', 'website')
+        widgets = {"username":forms.TextInput(attrs = {'class':'form-control'}),
+                    "email":forms.EmailInput(attrs = {'class':'form-control'}),
+                    "phone_no":forms.TextInput(attrs = {'class':'form-control'}),
+                    "organization_name":forms.TextInput(attrs = {'class':'form-control'}),
+                    "address":forms.TextInput(attrs = {'class':'form-control'}),
+                    "website":forms.URLInput(attrs = {'class':'form-control'})}
 
 
 

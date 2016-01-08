@@ -24,7 +24,8 @@
 
 
 <style>
-    .errorlist {color:red;float: right;margin: -20px 222px 8px 0;}
+    .errorlist {color:red;float: left;margin:0px 205px;}
+    .help_text {float:left;margin:0px 205px;}
 </style>
 
 
@@ -43,6 +44,7 @@
             <div class="col-sm-8">
                 {{field}}<br>
             </div>
+            <span class="help_text">{{field.help_text}}</span>
             <span>{{field.errors}}</span>
         </div>
       {% endfor %}

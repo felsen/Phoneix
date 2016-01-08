@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 import json
 
 # From Current Project Module Imports:
-from userprofile.forms import UserLoginForm, UserRegisterForm
+from userprofile.forms import UserLoginForm, UserRegisterForm, UserGetListForm
 from userprofile.models import UserGetList
 
 
@@ -48,8 +48,7 @@ class UserRegistrationView(FormView):
 
 class UserGetListView(CreateView):
 
-    model = UserGetList
-    fields = ('username', 'email', 'phone_no', 'organization_name', 'address', 'website')
+    form_class = UserGetListForm
     template_name = 'get_userlist.html'
     success_url = "/"
 

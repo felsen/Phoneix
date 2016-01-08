@@ -44,7 +44,7 @@
             <div class="col-sm-8">
                 {{field}}<br>
             </div>
-            <span class="help_text">{{field.help_text}}</span>
+            {% if field.help_text %}<span class="help_text">{{field.help_text}}</span>{% endif %}
             <span>{{field.errors}}</span>
         </div>
       {% endfor %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Admin | Cure and Beyond</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <!-- Bootstrap -->
+	<link rel="icon" type="image/png" href="http://cureato.com/wp-content/uploads/2015/10/icons_healthcare.png"/>
+    <link rel="stylesheet" type="text/css"  href="/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css"  href="/static/css/site_style.css">
+    <link href='/static/css/jquery-customselect.css' rel='stylesheet' />
+<style>
+    .admin-center {margin: 70px 261px 0 198px;border : 2px solid #e5e5ff}
+    .errorlist {color:red;float: right;margin: -20px 33px 8px 0 ;}
+</style>
+  </head>
+  <body>
+
+
+
+
+
+    <div id="tf-facilities" class="text-center">
+    <div class="container">
+    <div class="section-title text-center admin-center">
+	  <form action="/manage-login/" method = "POST" id = "login-form" autocomplete = "off"> {% csrf_token %}
+        <div class="modal-header">
+          <!--div class="col-sm-1"><a href="/"><img src="/static/img/logo1.png" style="width:100px;"></a></div-->
+          <h4 class="modal-title">
+            <img src="/static/img/logo1.png" style="width:100px;">
+                CureZing Administration
+          </h4>
+        </div>
+        {% if user_error %}<span class="errorlist">{{user_error}}</span> {% endif %}
+        <div class="modal-body">
+        {% for field in form %}
+		<div class="row">
+          <div class="col-sm-4">
+            <label>{{field.label_tag}}</label>
+          </div>
+          <div class="col-sm-8">
+            {{field}}<br>
+          </div>
+          <span>{{field.errors}}</span>
+		</div>
+		{% endfor %}
+		</div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" style="background-color:#6A4A9F; color:#ffffff;" required>Submit</button>
+        </div>
+      </form>
+    </div>
+    </div>
+    </div>
+
+  </body>
+</html>

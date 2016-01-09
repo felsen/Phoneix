@@ -26,7 +26,3 @@ class UserGetList(BaseInfo):
     def __unicode__(self):
         return "%s- %s"%(self.username, self.email)
 
-#    def clean(self, *args, **kwargs):
-#        if self.phone_no.isdigit() == False and len(self.phone_no) > 10:
-#            raise ValidationError("Enter the valid phone number")
-#        super(UserGetList, self).clean(*args, **kwargs)

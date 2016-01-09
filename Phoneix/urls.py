@@ -31,6 +31,9 @@ urlpatterns = [
     # Django backend admin app url(If you don't want comment it.).
     url(r'^admin/', include(admin.site.urls)),
 
+    # Phoneix backend admin app url(If you don't want comment it.).
+    url(r'^manage-', include('managebackend.urls')),
+
     # Logout url accessing django in-built logout functions.
 
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page':'/'}),

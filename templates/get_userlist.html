@@ -1,5 +1,6 @@
 
 <script type="text/javascript" src="/static/js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="/static/js/jquery.maskedinput.js"></script>
 <script type = "text/javascript">
     $(document).ready(function(){
         $("form#user-list-form").submit(function(){
@@ -19,6 +20,10 @@
             });
             return false;
         });
+
+        $("#id_phone_no").mask("9999999999");
+
+
     });
 </script>
 
@@ -44,8 +49,8 @@
             <div class="col-sm-8">
                 {{field}}<br>
             </div>
-            {% if field.help_text %}<span class="help_text">{{field.help_text}}</span>{% endif %}
             <span>{{field.errors}}</span>
+            {% if field.help_text %}<span class="help_text">{{field.help_text}}</span>{% endif %}
         </div>
       {% endfor %}
     </div>

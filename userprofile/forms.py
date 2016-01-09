@@ -68,21 +68,8 @@ class UserGetListForm(forms.ModelForm):
         fields = ('username', 'email', 'phone_no', 'organization_name', 'address', 'website')
         widgets = {"username":forms.TextInput(attrs = {'class':'form-control'}),
                     "email":forms.EmailInput(attrs = {'class':'form-control'}),
-                    "phone_no":forms.TextInput(attrs = {'class':'form-control'}),
+                    "phone_no":forms.TextInput(attrs = {'class':'form-control', 'cols':'2'}),
                     "organization_name":forms.TextInput(attrs = {'class':'form-control'}),
                     "address":forms.TextInput(attrs = {'class':'form-control'}),
                     "website":forms.URLInput(attrs = {'class':'form-control'})}
-
-
-
-
-
-
-
-
-
-
-
-
-
 

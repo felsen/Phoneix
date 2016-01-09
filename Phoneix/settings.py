@@ -55,6 +55,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'userprofile',
     'masterdata',
+    'managebackend',
+    'hospitalinfo',
 )
 
 MIDDLEWARE_CLASSES = (

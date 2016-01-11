@@ -33,7 +33,7 @@ class ManageLoginView(FormView):
 class ManageHomeView(CreateView):
 
     model = HospitalInfo
-    field = ('name', 'desc', 'email', 'phone', 'spacility')
+    fields = ('name', 'desc', 'email', 'phone', 'spacility')
     template_name = 'admin_templates/admin_index.html'
     success_url = '/manage-hospitals/'
 

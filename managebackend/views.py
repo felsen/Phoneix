@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 
 # Project Imports:
 from userprofile.forms import UserLoginForm
+from managebackend.forms import HospitalInfoForm
 from hospitalinfo.models import HospitalInfo
 
 class ManageLoginView(FormView):
@@ -30,12 +31,10 @@ class ManageLoginView(FormView):
             'form':form, 'user_error':self.user_error
         })
 
-class ManageHomeView(CreateView):
+class ManageHomeView(TemplateView):
 
-    model = HospitalInfo
-    fields = ('name', 'desc', 'email', 'phone', 'spacility')
     template_name = 'admin_templates/admin_index.html'
-    success_url = '/manage-hospitals/'
+
 
 class ManageVisitorsView(TemplateView):
 
@@ -45,9 +44,18 @@ class ManageDoctorsView(TemplateView):
 
     template_name = 'admin_templates/admin_doctors.html'
 
-class ManageHospitalsView(TemplateView):
+class ManageHospitalsView(CreateView):
 
+    model = HospitalInfo
+    form_class = HospitalInfoForm
     template_name = 'admin_templates/admin_hospitals.html'
+    success_url = '/manage-hospitals/'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ManageHospitalsView, self).get_context_data(*args, **kwargs)
+        context['hospital_list'] = HospitalInfo.objects.all()
+        return context
+
 
 class ManageClinicView(TemplateView):
 

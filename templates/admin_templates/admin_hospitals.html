@@ -1,7 +1,20 @@
 {% extends "admin_templates/admin_base.html" %}
 
 
+
     {% block admin_midpart %}
+
+    <style>
+        .errorlist {color:red}
+    </style>
+
+    <script type="text/javascript" src="/static/js/jquery.1.11.1.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.maskedinput.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#id_phone").mask("9999999999");
+        });
+    </script>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -33,27 +46,27 @@
                   <h3 class="box-title">New Hospitals</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" id="hospital_form" action="/manage-addform/hospitalinfo/" method="POST">{% csrf_token %}
+                <form role="form" id="hospital_form" action="/manage-hospitals/" method="POST">{% csrf_token %}
                   <div class="box-body  style="display:none;">
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Name</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Hospital Name">
+                      {{form.name}} {% if form.errors.name %}<span class="errorlist">{{form.errors.name|striptags}}</span>{% endif %}
 					</div>
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Email</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Hospital Email">
+                      {{form.email}} {% if form.errors.email %}<span class="errorlist">{{form.errors.email|striptags}}</span>{% endif %}
 					</div>
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Phone</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Hospital Phone">
+                      {{form.phone}} {% if form.errors.phone %}<span class="errorlist">{{form.errors.phone|striptags}}</span>{% endif %}
 					</div>
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Speciality</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Hospital Speciality">
+                      {{form.spacility}} {% if form.errors.spacility %}<span class="errorlist">{{form.errors.spacility|striptags}}</span>{% endif %}
 					</div>
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Description</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Hospital Description">
+                      {{form.desc}} {% if form.errors.desc %}<span class="errorlist">{{form.errors.desc|striptags}}</span>{% endif %}
 					</div>
 
                     <!--<div class="form-group">
@@ -69,7 +82,7 @@
                   </div><!-- /.box-body -->
 
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary" onclick="Client_entry()">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
               </div><!-- /.box -->
@@ -95,23 +108,35 @@
 		        <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
-                      <th>ID</th>
+                      <!--th>ID</th>
                       <th>Name</th>
                       <th>Category</th>
                       <th>Visited To</th>
                       <th>Doctor</th>
                       <th>Date</th>
-					  <th>Status</th>
+					  <th>Status</th-->
+					  <th>Name</th>
+					  <th>Email</th>
+					  <th>Phone</th>
+					  <th>Speciality</th>
+					  <th>Description</th>
      				</tr>
+     				{% for i in hospital_list %}
                     <tr>
-                      <td>1</td>
+                      <td>{{i.name}}</td>
+                      <td>{{i.email}}</td>
+                      <td>{{i.phone}}</td>
+                      <td>{{i.spacility}}</td>
+                      <td>{{i.desc}}</td>
+                      <!--td>1</td>
                       <td>Rahul</td>
                       <td>General</td>
                       <td>Sagar Hospital</td>
                       <td>M. Raghaw</td>
                       <td>09-13-2015</td>
-					  <td><button type="btn btn-primary">View</button></td>
+					  <td><button type="btn btn-primary">View</button></td-->
                     </tr>
+                    {% endfor %}
                   </table>
                 </div><!-- /.box-body -->
           </div><!-- /.row -->

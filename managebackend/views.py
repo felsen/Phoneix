@@ -8,8 +8,9 @@ from django.contrib.auth.models import User
 
 # Project Imports:
 from userprofile.forms import UserLoginForm
-from managebackend.forms import HospitalInfoForm
-from hospitalinfo.models import HospitalInfo
+from managebackend.forms import HospitalInfoForm, DoctorsInfoForm, ClinicInfoForm, DgLabsInfoForm, \
+    PharmacyInfoForm
+from hospitalinfo.models import HospitalInfo, DoctorsInfo, ClinicInfo, DgLabsInfo, PharmacyInfo
 
 class ManageLoginView(FormView):
 
@@ -40,9 +41,17 @@ class ManageVisitorsView(TemplateView):
 
     template_name = 'admin_templates/admin_visitors.html'
 
-class ManageDoctorsView(TemplateView):
+class ManageDoctorsView(CreateView):
 
+    model = DoctorsInfo
+    form_class = DoctorsInfoForm
     template_name = 'admin_templates/admin_doctors.html'
+    success_url = '/manage-doctors/'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ManageDoctorsView, self).get_context_data(*args, **kwargs)
+        context['doctors_list'] = DoctorsInfo.objects.all()
+        return context
 
 class ManageHospitalsView(CreateView):
 
@@ -57,14 +66,38 @@ class ManageHospitalsView(CreateView):
         return context
 
 
-class ManageClinicView(TemplateView):
+class ManageClinicView(CreateView):
 
+    model = ClinicInfo
+    form_class = ClinicInfoForm
     template_name = 'admin_templates/admin_clinic.html'
+    success_url = '/manage-clinic/'
 
-class ManageDignosticView(TemplateView):
+    def get_context_data(self, *args, **kwargs):
+        context = super(ManageClinicView, self).get_context_data(*args, **kwargs)
+        context['clinic_list'] = ClinicInfo.objects.all()
+        return context
 
+class ManageDignosticView(CreateView):
+
+    model = DgLabsInfo
+    form_class = DgLabsInfoForm
     template_name = 'admin_templates/admin_dignostic.html'
+    success_url = '/manage-dignostic/'
 
-class ManagePharmacyView(TemplateView):
+    def get_context_data(self, *args, **kwargs):
+        context = super(ManageDignosticView, self).get_context_data(*args, **kwargs)
+        context['dglabs_list'] = DgLabsInfo.objects.all()
+        return context
 
+class ManagePharmacyView(CreateView):
+
+    model = PharmacyInfo
+    form_class = PharmacyInfoForm
     template_name = 'admin_templates/admin_pharmacy.html'
+    success_url = '/manage-pharmacy/'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ManagePharmacyView, self).get_context_data(*args, **kwargs)
+        context['pharmacy_list'] = PharmacyInfo.objects.all()
+        return context

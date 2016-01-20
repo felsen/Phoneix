@@ -3,6 +3,11 @@
 
     {% block admin_midpart %}
 
+    <style>
+        .errorlist {color:red}
+    </style>
+
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -33,27 +38,31 @@
                   <h3 class="box-title">New Clinics</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" id="client_form">
+                <form role="form" id="client_form" action="/manage-clinic/" method="POST" enctype="multipart/form-data">{% csrf_token %}
                   <div class="box-body  style="display:none;"">
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Name</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Client Name">
+                      {{form.name}} {% if form.errors.name %}<span class="errorlist">{{form.errors.name|striptags}}</span>{% endif %}
 					</div>
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Email</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Client Name">
+                      {{form.email}} {% if form.errors.email %}<span class="errorlist">{{form.errors.email|striptags}}</span>{% endif %}
 					</div>
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Phone</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Client Name">
+                      {{form.phone}} {% if form.errors.phone %}<span class="errorlist">{{form.errors.phone|striptags}}</span>{% endif %}
 					</div>
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Speciality</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Client Name">
+                      {{form.spacility}} {% if form.errors.spacility %}<span class="errorlist">{{form.errors.spacility|striptags}}</span>{% endif %}
 					</div>
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Description</label>
-                      <input type="text" class="form-control" id="Client_name" placeholder="Client Name">
+                      {{form.desc}} {% if form.errors.desc %}<span class="errorlist">{{form.errors.desc|striptags}}</span>{% endif %}
+					</div>
+                    <div class="col-sm-4 form-group">
+                      <label for="exampleInputEmail1">Image</label>
+                      {{form.image}} {% if form.errors.image %}<span class="errorlist">{{form.errors.image|striptags}}</span>{% endif %}
 					</div>
                     <!--<div class="form-group">
                       <label for="exampleInputFile">File input</label>
@@ -93,7 +102,7 @@
                 </div><!-- /.box-header -->
 		        <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
-                    <tr>
+                    <!--tr>
                       <th>ID</th>
                       <th>Name</th>
                       <th>Category</th>
@@ -110,7 +119,23 @@
                       <td>M. Raghaw</td>
                       <td>09-13-2015</td>
 					  <td><button type="btn btn-primary">View</button></td>
+                    </tr-->
+                    <tr>
+					  <th>Name</th>
+					  <th>Email</th>
+					  <th>Phone</th>
+					  <th>Speciality</th>
+					  <th>Description</th>
+     				</tr>
+     				{% for i in clinic_list %}
+                    <tr>
+                      <td>{{i.name}}</td>
+                      <td>{{i.email}}</td>
+                      <td>{{i.phone}}</td>
+                      <td>{{i.spacility}}</td>
+                      <td>{{i.desc}}</td>
                     </tr>
+                    {% endfor %}
                   </table>
                 </div><!-- /.box-body -->
           </div><!-- /.row -->

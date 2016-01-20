@@ -46,7 +46,7 @@
                   <h3 class="box-title">New Hospitals</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" id="hospital_form" action="/manage-hospitals/" method="POST">{% csrf_token %}
+                <form role="form" id="hospital_form" action="/manage-hospitals/" method="POST" enctype="multipart/form-data">{% csrf_token %}
                   <div class="box-body  style="display:none;">
                     <div class="col-sm-4 form-group">
                       <label for="exampleInputEmail1">Name</label>
@@ -68,7 +68,10 @@
                       <label for="exampleInputEmail1">Description</label>
                       {{form.desc}} {% if form.errors.desc %}<span class="errorlist">{{form.errors.desc|striptags}}</span>{% endif %}
 					</div>
-
+                    <div class="col-sm-4 form-group">
+                      <label for="exampleInputEmail1">Image</label>
+                      {{form.image}} {% if form.errors.image %}<span class="errorlist">{{form.errors.image|striptags}}</span>{% endif %}
+					</div>
                     <!--<div class="form-group">
                       <label for="exampleInputFile">File input</label>
                       <input type="file" id="exampleInputFile">

@@ -72,6 +72,10 @@
                       <label for="exampleInputEmail1">Image</label>
                       {{form.image}} {% if form.errors.image %}<span class="errorlist">{{form.errors.image|striptags}}</span>{% endif %}
 					</div>
+                    <div class="col-sm-4 form-group">
+                      <label for="exampleInputEmail1">Address</label>
+                      {{form.addr}} {% if form.errors.addr %}<span class="errorlist">{{form.errors.addr|striptags}}</span>{% endif %}
+					</div>
                     <!--<div class="form-group">
                       <label for="exampleInputFile">File input</label>
                       <input type="file" id="exampleInputFile">

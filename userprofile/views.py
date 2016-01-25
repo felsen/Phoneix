@@ -3,7 +3,7 @@ from django.shortcuts import render, render_to_response
 from django.views.generic.base import TemplateView
 from django.contrib.auth import login as auth_login, authenticate, get_user
 from django.http import HttpResponseRedirect
-from django.views.generic import FormView, View, CreateView
+from django.views.generic import FormView, View, CreateView, ListView, DetailView
 from django.contrib.auth.models import User
 
 # From Third Party Package Imports:
@@ -12,6 +12,7 @@ import json
 # From Current Project Module Imports:
 from userprofile.forms import UserLoginForm, UserRegisterForm, UserGetListForm
 from userprofile.models import UserGetList
+from hospitalinfo.models import HospitalInfo, ClinicInfo, DgLabsInfo, PharmacyInfo
 
 
 class UserLoginView(FormView):
@@ -56,40 +57,48 @@ class HomePage(TemplateView):
 
     template_name = 'index.html'
 
-class HospitalsListView(TemplateView):
+class HospitalsListView(ListView):
 
+    model = HospitalInfo
     template_name = 'hospitals.html'
 
-class ClinicsListView(TemplateView):
+class ClinicsListView(ListView):
 
+    model = ClinicInfo
     template_name = 'clinics.html'
 
-class ClinicsPageView(TemplateView):
+class ClinicsPageView(DetailView):
 
+    model = ClinicInfo
     template_name = 'clinic_page.html'
 
-class DgLabsListView(TemplateView):
+class DgLabsListView(ListView):
 
+    model = DgLabsInfo
     template_name = 'dglabs.html'
 
-class DgLabsPageView(TemplateView):
+class DgLabsPageView(DetailView):
 
+    model = DgLabsInfo
     template_name = 'dglab_page.html'
 
-class PharmacyListView(TemplateView):
+class PharmacyListView(ListView):
 
+    model = PharmacyInfo
     template_name = 'pharmacy.html'
 
-class PharmacyPageView(TemplateView):
+class PharmacyPageView(DetailView):
 
+    model = PharmacyInfo
     template_name = 'pharmacy_page.html'
 
 class ContactPageView(TemplateView):
 
     template_name = 'contact.html'
 
-class HospitalPageView(TemplateView):
+class HospitalPageView(DetailView):
 
+    model = HospitalInfo
     template_name = 'hospital.html'
 
 class AboutUsPageView(TemplateView):

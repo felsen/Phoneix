@@ -17,8 +17,8 @@
 					</div>
 				</div>
 				<div class="content-single-job_listing-hero-company col-md-7 col-sm-12">
-							<h1 itemprop="name" class="job_listing-title">Cureato Imperial</h1>
-							<h4>22/10, MG Road, Bangalore - 560076</h4>
+							<h1 itemprop="name" class="job_listing-title">{{object.name}}</h1>
+							<h4>{{object.addr}}</h4>
 				</div>
 				<div class="content-single-job_listing-title-category">
 		
@@ -84,12 +84,12 @@
 						<ul class="about-list">
                             <li>
                                 <span class="fa fa-dot-circle-o"></span>
-                                <em>We have been in the healthcare industry since 1995 and have provide extraordinary service to everyone who entrusts us with their health.</em>
+                                <em>{{object.desc}}</em>
                             </li>
-                            <li>
+                            <!--li>
                                 <span class="fa fa-dot-circle-o"></span>
                                 <em>We have 300 bed and a staff 200 strong deal with all the major specialities</em>
-                            </li>
+                            </li-->
 
                         </ul>
 					</div>
@@ -175,7 +175,7 @@
 						<ul class="about-list">
                             <li>
                                 <span class="fa fa-dot-circle-o"></span>
-                                <em>Anaesthesiology, Cardio Thoracic and Vascular Surgery,Cardiology,Clinical Nutrition and Dietetics, Critical Care, Dentistry and Maxillo-Facial Surgery, Dermatology, Diabetes and Metabolic disorders, ENT, Emergency Medicine, Endocrinology, Foetal Medicine, Gastroenterology and Hepatology, Gastrointestinal & Hepatobilliary Surgery, General and Laparoscopic Surgery, Haematology, Internal Medicine, Mental Health and Behavioural Sciences, Minimal Access Surgery, Nephrology, Neurology, Obstetrics and Gynaecology, Oncology, Ophthalmology, Orthopaedics and joint replacement, Paediatrics and Neonatology, Physiotherapy and Rehabilitation, Plastic / Cosmetic Surgery, Pulmonology / Respiratory, Medicine, Radiology, Rheumatology, Sports Medicine, Vascular Surgery</em>
+                                <em>{{object.spacility}}</em>
                             </li>
 
                         </ul>

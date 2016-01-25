@@ -174,15 +174,15 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="/static/admin_static/dist/img/pic.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Rahul Kumar</span>
+                  <span class="hidden-xs">{{request.user}}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="/static/admin_static/dist/img/pic.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Rahul Kumar
-                      <small>Member since Nov. 2015</small>
+                      {{request.user}}
+                      <small>Member since {{request.user.date_joined|date:'M'}}. {{request.user.date_joined.year}}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->

@@ -47,16 +47,16 @@ urlpatterns = [
     url(r'^$', HomePage.as_view(), name = 'home-page'),
 
     url(r'^hospitals-list/$', HospitalsListView.as_view(), name = 'hospitals-list'),
-    url(r'^hospital-page/$', HospitalPageView.as_view(), name = 'hospital-page'),
+    url(r'^hospital-page/(?P<slug>.*)/$', HospitalPageView.as_view(), name = 'hospital-page'),
 
     url(r'^clinics-list/$', ClinicsListView.as_view(), name = 'clinics-list'),
-    url(r'^clinics-page/$', ClinicsPageView.as_view(), name = 'clinics-page'),
+    url(r'^clinics-page/(?P<slug>.*)/$', ClinicsPageView.as_view(), name = 'clinics-page'),
 
     url(r'^dglabs-list/$', DgLabsListView.as_view(), name = 'dglabs-list'),
-    url(r'^dglabs-page/$', DgLabsPageView.as_view(), name = 'dglabs-page'),
+    url(r'^dglabs-page/(?P<slug>.*)/$', DgLabsPageView.as_view(), name = 'dglabs-page'),
 
     url(r'^pharmacy-list/$', PharmacyListView.as_view(), name = 'pharmacy-list'),
-    url(r'^pharmacy-page/$', PharmacyPageView.as_view(), name = 'pharmacy-page'),
+    url(r'^pharmacy-page/(?P<slug>.*)/$', PharmacyPageView.as_view(), name = 'pharmacy-page'),
 
     url(r'^get-user-list/$', UserGetListView.as_view(), name = 'get-user-list'),
     url(r'^about-us/$', AboutUsPageView.as_view(), name = 'about-us-page'),
